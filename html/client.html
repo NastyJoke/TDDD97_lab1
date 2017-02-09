@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+       <meta charset="UTF-8" />
+       <title>Twidder</title>
+       <link href="../css/client.css" type="text/css" rel="stylesheet">
+       <script src="../js/client.js" type="text/javascript"></script>
+       <script src="../js/serverstub.js" type="text/javascript"></script>
+    </head>
+    <body>
+      <div id="welcomeView">
+        <div id="container">
+          <div id="logo">
+            <img src="../img/wimage.png" alt="Twidder" />
+          </div>
+          <div id="login">
+            <div id="loginWrapper">
+              <form id="loginForm" action="#">
+                <div><label class="welcomeForm" for="email">Email</label><input class="welcomeForm" type="email" id="email" /></div>
+                <div><label class="welcomeForm" for="password">Password</label><input class="welcomeForm" type="password" id="password" /></div>
+                <input class="button welcomeForm" id="loginSubmit" type="submit" value="Log in" />
+                <span class="errorMessage" id="loginErrorMessage"></span>
+              </form>
+            </div>
+          </div>
+          <div id="signup">
+            <div id="signupWrapper">
+              <form action="#">
+                <label class="welcomeForm" for="firstName">First name</label><input class="welcomeForm" type="text" id="firstName" />
+                <label class="welcomeForm" for="familyName">Family name</label><input class="welcomeForm" type="text" id="familyName" />
+                <label class="welcomeForm" for="gender">Gender</label><select class="welcomeForm" id="gender">
+                  <option selected value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <label class="welcomeForm" for="city">City</label><input class="welcomeForm" type="text" id="city" />
+                <label class="welcomeForm" for="country">Country</label><input class="welcomeForm" type="text" id="country" />
+                <label class="welcomeForm" for="newEmail">Email</label><input class="welcomeForm" type="email" id="newEmail" />
+                <label class="welcomeForm" for="newPassword">Password</label><input class="welcomeForm" type="password" id="newPassword" />
+                <label class="welcomeForm" for="repeatPassword">Repeat password</label><input class="welcomeForm" type="password" id="repeatPassword" />
+                <input class="button welcomeForm" id="signupSubmit" type="submit" value="Sign Up" />
+                <span class="errorMessage" id="signupMessage"></span><br />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mainView">
+        <div id="menuBar">
+          <a id="homeButton" onClick="activeButton(0);" class="tabButton button">Home</a>
+          <a id="browseButton" onClick="activeButton(1);" class="tabButton button">Browse</a>
+          <a id="accountButton" onClick="activeButton(2);" class="tabButton button">Account</a>
+        </div>
+        <hr />
+          <div id="contentWrapper">
+            <div id="home">
+              <div class="info" id="info">
+                
+                  <b id="displayName"></b><br />
+                  <span id="displayMail"></span><br />
+                  <i id="displayCity"></i>, <i id="displayCountry"></i><br />
+                  <span id="displayGender"></span>
+                
+              </div>
+              
+                <a class="imgLink" onClick="refreshOwnMessages();"><img height="32" alt="Refresh" width="32" src="../img/refresh.png" /></a>
+                <form action="#home">
+                  <textarea class="postMessage" cols="60" rows="6" id="postMessage"></textarea><br />
+                  <input id="postSubmit" class="button smallBtn" type="submit" value="Post Message" />
+                  <span class="errorMessage" id="refreshErrorMessage"></span><br />
+                </form>
+                <div id="ownWall">
+
+                </div>
+              
+            </div>
+            <div id="browse">
+              <div class="searchBar">
+                  <form action="#">
+                    <input placeholder="Search someone" type="text" id="search" />
+                    <input class="button smallBtn" type="submit" id="searchSubmit" value="Search user" />
+                  </form>
+                  <span class="errorMessage" id="searchMessage"></span>
+              </div>
+
+
+                  <!-- Ugly copy paste -->
+                  <hr />
+                    <div id="browseUser">
+                      <div class="info" id="userInfo">
+                        
+                          <b id="displayUserName"></b><br />
+                          <span id="displayUserMail"></span><br />
+                          <i id="displayUserCity"></i>, <i id="displayUserCountry"></i><br />
+                          <span id="displayUserGender"></span>
+                        
+                      </div>
+                      
+                        <a class="imgLink" onClick="refreshUserMessages();"><img height="32" alt="Refresh" width="32" src="../img/refresh.png" /></a>
+                        <form action="#">
+                          <textarea cols="60" rows="6" class="postMessage" id="postUserMessage"></textarea><br />
+                          <input class="button smallBtn" id="postMessageSubmit" type="submit" value="Post Message" />
+                          <span class="errorMessage" id="refreshUserErrorMessage"></span><br />
+                        </form>
+                        <div id="userWall">
+
+                        </div>
+                      
+                    </div>
+                    <!--               -->
+
+
+              
+            </div>
+            <div id="account">
+              <button class="button smallBtn" id="disconnect" onClick="disconnect();">Disconnect</button>
+              <div id="changePwdWrapper">
+                <div id="changePwdForm">
+                  <form action="#">
+
+                      <label class="changePwdForm" for="oldPassword">Old Password</label> <input class="changePwd" type="password" id="oldPassword"/>
+                      <label class="changePwdForm" for="changePassword">New Password</label> <input class="changePwd" type="password" id="changePassword"/>
+                      <label class="changePwdForm" for="changePassword">Repeat Password</label> <input class="changePwd" type="password" id="repeatChangePassword"/>
+                      <input class="button smallBtn" id="changePwdSubmit" type="submit" value="Change"/><br />
+                      <span class="errorMessage" id="changePasswordErrorMessage"></span><br />
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </body>
+</html>
